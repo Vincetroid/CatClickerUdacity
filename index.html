@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Cat Clicker</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/animate.css"/>
+	</head>
+	<body onresize="posicionarImgCentroAlRedimensionar()">
+		<img src="img/cat.jpg" id="cat" onload="posicionar()" onclick="incrementarLike()">
+		<center><h2 id="like"></h2></center>
+
+	<script>
+
+		function posicionar() {
+			//Colocar h2 en parte inferior derecha de imagen
+			var anchoImg = document.getElementById("cat").width;
+			document.getElementsByTagName("h2")[0].setAttribute("style",'width:' + anchoImg + 'px;');
+
+			//Posicionar imagen al centro verticalmente
+			var mitadPantalla = window.outerHeight / 2; //50 px de la barra de tareas
+			var mitadImagen = document.getElementById("cat").height / 2;
+			document.getElementById("cat").style.marginTop = mitadPantalla - 100 - mitadImagen + "px";
+
+		}
+
+		function posicionarImgCentroAlRedimensionar(){
+			var mitadPantalla = window.outerHeight / 2; //50 px de la barra de tareas
+			var mitadImagen = document.getElementById("cat").height / 2;
+			document.getElementById("cat").style.marginTop = mitadPantalla - 100 - mitadImagen + "px";
+
+		}
+
+		var i = 0;
+
+		function incrementarLike(){
+			document.getElementById("like").setAttribute("class", "animated flipInX");
+			window.setTimeout(borrarAnimacionLike, 300);
+			document.getElementById("like").innerHTML = ++i;
+		}
+
+		function borrarAnimacionLike(){
+			document.getElementById("like").setAttribute("class", "");
+		}
+	
+	</script>
+	</body>
+</html> 
