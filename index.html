@@ -7,22 +7,39 @@
 		<link rel="stylesheet" href="css/animate.css"/>
 	</head>
 	<body onresize="posicionarImgCentroAlRedimensionar()">
-		<img src="img/cat.jpg" id="cat" onload="posicionar()" onclick="incrementarLike()">
-		<center><h2 id="like"></h2></center>
+		<header>
+			<h1>Cat Clicker</h1>
+		</header>
+		<table>
+			<tr>
+				<td><p>Tutankamon</p></td>
+				<td><p>Anubis</p></td>
+			</tr>
+			<tr>
+				<td><img src="img/cat.jpg" id="cat" onclick="incrementarLikeTutankamon()"></td>
+				<td><img src="img/cat2.jpg" id="cat2" onclick="incrementarLikeAnubis()"></td>
+			</tr>	
+			<tr>
+				<td><h2 id="like">0</h2></td>
+				<td><h2 id="like2">0</h2></td>
+			</tr>		
+		</table>
+
 
 	<script>
 
-		function posicionar() {
-			//Colocar h2 en parte inferior derecha de imagen
-			var anchoImg = document.getElementById("cat").width;
-			document.getElementsByTagName("h2")[0].setAttribute("style",'width:' + anchoImg + 'px;');
+		// function posicionar() {
+		// 	//Colocar h2 en parte inferior derecha de imagen
+		// 	var anchoImg = document.getElementById("cat").width;
+		// 	alert(anchoImg);
+		// 	document.getElementsByTagName("h2")[0].setAttribute("style",'width:' + anchoImg + 'px;');
 
-			//Posicionar imagen al centro verticalmente
-			var mitadPantalla = window.outerHeight / 2; //50 px de la barra de tareas
-			var mitadImagen = document.getElementById("cat").height / 2;
-			document.getElementById("cat").style.marginTop = mitadPantalla - 100 - mitadImagen + "px";
+		// 	//Posicionar imagen al centro verticalmente
+		// 	var mitadPantalla = window.outerHeight / 2; //50 px de la barra de tareas
+		// 	var mitadImagen = document.getElementById("cat").height / 2;
+		// 	document.getElementById("cat").style.marginTop = mitadPantalla - 100 - mitadImagen + "px";
 
-		}
+		// }
 
 		function posicionarImgCentroAlRedimensionar(){
 			var mitadPantalla = window.outerHeight / 2; //50 px de la barra de tareas
@@ -31,12 +48,18 @@
 
 		}
 
-		var i = 0;
+		var i = 0, j = 0;
 
-		function incrementarLike(){
+		function incrementarLikeTutankamon(){
 			document.getElementById("like").setAttribute("class", "animated flipInX");
 			window.setTimeout(borrarAnimacionLike, 300);
 			document.getElementById("like").innerHTML = ++i;
+		}
+
+		function incrementarLikeAnubis(){
+			document.getElementById("like2").setAttribute("class", "animated flipInX");
+			window.setTimeout(borrarAnimacionLike, 300);
+			document.getElementById("like2").innerHTML = ++j;
 		}
 
 		function borrarAnimacionLike(){
