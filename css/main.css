@@ -2,6 +2,7 @@ body{
 	background-color: #ccf;
 	margin: 0 auto;
 	padding: 0;
+	/*margin-top: -30px;*/
 }
 
 h1{
@@ -39,11 +40,16 @@ img{
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
+	margin-top: auto;
 }
 
-/*#cat2{
-	height: 426px;
-}*/
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style-type: none;
+}
 
 td{
 	/*border: solid 1px;*/
@@ -60,3 +66,7 @@ table{
 	margin-top: 80px;
 	box-shadow: 1px 1px 5px black;
 }
+
+/*#menu-lineas{
+	float: right;
+}*/

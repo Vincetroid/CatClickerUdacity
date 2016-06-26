@@ -6,7 +6,10 @@
 		<link rel="stylesheet" href="css/main.css" />
 		<link rel="stylesheet" href="css/animate.css"/>
 	</head>
-	<body onresize="posicionarImgCentroAlRedimensionar()">
+	<body onresize="posicionarImgCentroAlRedimensionar()" onload="menu()">
+		<!-- <img id="menu-lineas" src="img/boton_icono.png" width="32px" height="32px" > -->
+		<div id="listaGatos">	
+		</div>
 		<header>
 			<h1>Cat Clicker</h1>
 		</header>
@@ -25,7 +28,6 @@
 			</tr>		
 		</table>
 
-
 	<script>
 
 		// function posicionar() {
@@ -41,12 +43,12 @@
 
 		// }
 
-		function posicionarImgCentroAlRedimensionar(){
-			var mitadPantalla = window.outerHeight / 2; //50 px de la barra de tareas
-			var mitadImagen = document.getElementById("cat").height / 2;
-			document.getElementById("cat").style.marginTop = mitadPantalla - 100 - mitadImagen + "px";
+		// function posicionarImgCentroAlRedimensionar(){
+		// 	var mitadPantalla = window.outerHeight / 2; //50 px de la barra de tareas
+		// 	var mitadImagen = document.getElementById("cat").height / 2;
+		// 	document.getElementById("cat").style.marginTop = mitadPantalla - 100 - mitadImagen + "px";
 
-		}
+		// }
 
 		var i = 0, j = 0;
 
@@ -64,6 +66,41 @@
 
 		function borrarAnimacionLike(){
 			document.getElementById("like").setAttribute("class", "");
+		}
+
+		var aparecer = true; //Al principio true para que aparezca el submenu
+
+		function menu(){
+			if(aparecer == true){
+				document.getElementById("listaGatos").innerHTML = '<h3>Gatos</h3><ul><li><a href="#basura" id="bas">Tutankamon</a></li><li><a href="#equipos" id="eee">Anubis</a></li><li><a href="#ewaste" id="ewa">Jahi</a></li><li><a href="#salud" id="sal">Khalid</a></li><li><a href="#salud" id="sal">Sadiki</a></li></ul>';
+				// document.getElementById("subMenu").style.visibility = "visible";
+				document.getElementById("listaGatos").style.position = "fixed";
+				// document.getElementById("menu-lineas").src = "img/boton_icono2.png";
+				// <img src="" width="32px" height="32px" style="position:absolute; margin-top:-18px;" id="boton_icono" onclick="submenu()">
+				document.getElementById("listaGatos").style.fontFamily = "Roboto Slab";
+				document.getElementById("listaGatos").style.color = "white";
+				document.getElementById("listaGatos").style.width = "150px";
+				document.getElementById("listaGatos").style.height = "100%";
+				document.getElementById("listaGatos").style.right = "0%";
+				document.getElementById("listaGatos").style.border = "1px solid #7d7d7d";
+				document.getElementById("listaGatos").style.background = "#DBDBDB";
+				document.getElementById("bas").style.color = "yellow";
+				document.getElementById("eee").style.color = "yellow";
+				document.getElementById("sal").style.color = "yellow";
+				document.getElementById("ewa").style.color = "yellow";
+				document.getElementById("listaGatos").style.padding = "15px";
+				document.getElementById("listaGatos").style.display = "block";
+				document.getElementById("listaGatos").style.boxShadow = "0px 0px 4px black";
+				// document.getElementById("listaGatos").style.textDecoration = "none";
+				// document.getElementById("listaGatos").style.listStyleImage = "url('../V4/img/vineta2.png')";
+				document.getElementById("listaGatos").setAttribute("class", "animated fadeInRight");
+
+				aparecer = false; //Una vez mostrado se cambia a false para que al darle click se oculte
+			} else {
+				document.getElementById("listaGatos").setAttribute("class", "animated fadeOutRight");
+
+				aparecer = true; //Una vez ocultado se cambia a true para que al dar click aparezca de nuevo
+			}
 		}
 	
 	</script>
