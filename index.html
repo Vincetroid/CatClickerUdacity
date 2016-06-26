@@ -6,73 +6,58 @@
 		<link rel="stylesheet" href="css/main.css" />
 		<link rel="stylesheet" href="css/animate.css"/>
 	</head>
-	<body onresize="posicionarImgCentroAlRedimensionar()" onload="menu()">
-		<!-- <img id="menu-lineas" src="img/boton_icono.png" width="32px" height="32px" > -->
+	<body onload="menu()">
 		<div id="listaGatos">	
 		</div>
 		<header>
 			<h1>Cat Clicker</h1>
 		</header>
+		<img id="menu-lineas" src="img/boton_icono.png" width="32px" height="32px" onclick="menu()">
 		<table>
 			<tr>
 				<td><p>Tutankamon</p></td>
-				<td><p>Anubis</p></td>
+				<!-- <td><p>Anubis</p></td> -->
 			</tr>
 			<tr>
 				<td><img src="img/cat.jpg" id="cat" onclick="incrementarLikeTutankamon()"></td>
-				<td><img src="img/cat2.jpg" id="cat2" onclick="incrementarLikeAnubis()"></td>
+				<!-- <td><img src="img/cat2.jpg" id="cat2" onclick="incrementarLikeAnubis()"></td> -->
 			</tr>	
 			<tr>
 				<td><h2 id="like">0</h2></td>
-				<td><h2 id="like2">0</h2></td>
+				<!-- <td><h2 id="like2">0</h2></td> -->
 			</tr>		
 		</table>
 
 	<script>
 
-		// function posicionar() {
-		// 	//Colocar h2 en parte inferior derecha de imagen
-		// 	var anchoImg = document.getElementById("cat").width;
-		// 	alert(anchoImg);
-		// 	document.getElementsByTagName("h2")[0].setAttribute("style",'width:' + anchoImg + 'px;');
-
-		// 	//Posicionar imagen al centro verticalmente
-		// 	var mitadPantalla = window.outerHeight / 2; //50 px de la barra de tareas
-		// 	var mitadImagen = document.getElementById("cat").height / 2;
-		// 	document.getElementById("cat").style.marginTop = mitadPantalla - 100 - mitadImagen + "px";
-
-		// }
-
-		// function posicionarImgCentroAlRedimensionar(){
-		// 	var mitadPantalla = window.outerHeight / 2; //50 px de la barra de tareas
-		// 	var mitadImagen = document.getElementById("cat").height / 2;
-		// 	document.getElementById("cat").style.marginTop = mitadPantalla - 100 - mitadImagen + "px";
-
-		// }
-
 		var i = 0, j = 0;
 
 		function incrementarLikeTutankamon(){
 			document.getElementById("like").setAttribute("class", "animated flipInX");
-			window.setTimeout(borrarAnimacionLike, 300);
+			window.setTimeout( function(){ document.getElementById("like").setAttribute("class", ""); }  ,  250 );
+			//window.setTimeout(borrarAnimacionLike, 300);
 			document.getElementById("like").innerHTML = ++i;
 		}
 
 		function incrementarLikeAnubis(){
+			//debugger;
 			document.getElementById("like2").setAttribute("class", "animated flipInX");
-			window.setTimeout(borrarAnimacionLike, 300);
+			window.setTimeout( function(){ document.getElementById("like2").setAttribute("class", ""); }  ,  250 );
+			//window.setTimeout(borrarAnimacionLike, 300);
 			document.getElementById("like2").innerHTML = ++j;
 		}
 
-		function borrarAnimacionLike(){
-			document.getElementById("like").setAttribute("class", "");
-		}
+		// function borrarAnimacionLike(){
+		// 	// debugger;
+			
+		// 	// document.getElementById("like2").setAttribute("class", "");
+		// }
 
 		var aparecer = true; //Al principio true para que aparezca el submenu
 
 		function menu(){
 			if(aparecer == true){
-				document.getElementById("listaGatos").innerHTML = '<h3>Gatos</h3><ul><li><a href="#basura" id="bas">Tutankamon</a></li><li><a href="#equipos" id="eee">Anubis</a></li><li><a href="#ewaste" id="ewa">Jahi</a></li><li><a href="#salud" id="sal">Khalid</a></li><li><a href="#salud" id="sal">Sadiki</a></li></ul>';
+				document.getElementById("listaGatos").innerHTML = '<h3>Gatos</h3><ul><li><a href="#basura" id="bas">Tutankamon</a></li><li><a onclick="showAnubis" id="anu">Anubis</a></li><li><a href="#ewaste" id="ewa">Jahi</a></li><li><a href="#salud" id="sal">Khalid</a></li><li><a href="#salud" id="sad">Sadiki</a></li></ul>';
 				// document.getElementById("subMenu").style.visibility = "visible";
 				document.getElementById("listaGatos").style.position = "fixed";
 				// document.getElementById("menu-lineas").src = "img/boton_icono2.png";
@@ -85,9 +70,10 @@
 				document.getElementById("listaGatos").style.border = "1px solid #7d7d7d";
 				document.getElementById("listaGatos").style.background = "#DBDBDB";
 				document.getElementById("bas").style.color = "yellow";
-				document.getElementById("eee").style.color = "yellow";
+				document.getElementById("anu").style.color = "yellow";
 				document.getElementById("sal").style.color = "yellow";
 				document.getElementById("ewa").style.color = "yellow";
+				document.getElementById("sad").style.color = "yellow";
 				document.getElementById("listaGatos").style.padding = "15px";
 				document.getElementById("listaGatos").style.display = "block";
 				document.getElementById("listaGatos").style.boxShadow = "0px 0px 4px black";

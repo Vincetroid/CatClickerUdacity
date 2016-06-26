@@ -2,7 +2,7 @@ body{
 	background-color: #ccf;
 	margin: 0 auto;
 	padding: 0;
-	/*margin-top: -30px;*/
+	margin-top: -37px;
 }
 
 h1{
@@ -24,9 +24,13 @@ h2{
 	margin-top: -45px;
 }
 
-#like{
+/*#like{
 	margin-top: -100px;
 }
+
+#like2{
+	margin-top: 0px;
+}*/
 
 p{
 	text-align: center;
@@ -67,6 +71,8 @@ table{
 	box-shadow: 1px 1px 5px black;
 }
 
-/*#menu-lineas{
-	float: right;
-}*/
+#menu-lineas{
+	position: absolute;
+	top: 1%;
+	right: 1%;
+}
