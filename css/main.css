@@ -24,14 +24,6 @@ h2{
 	margin-top: -45px;
 }
 
-/*#like{
-	margin-top: -100px;
-}
-
-#like2{
-	margin-top: 0px;
-}*/
-
 p{
 	text-align: center;
 	font-family: lobster;
@@ -49,6 +41,7 @@ img{
 
 a {
 	text-decoration: none;
+	cursor: pointer;
 }
 
 li {
