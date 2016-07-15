@@ -21,7 +21,7 @@
 			</tr>
 			<tr>
 				<td id="imgGato">
-					<img src="img/cat.jpg" id="cat" onclick="incrementarLike('like', ++i)">
+					<img src="img/cat0.jpg" id="cat" onclick="incrementarLike('like', 0)">
 				</td>
 				<!-- <td id="imgGato"><img src="img/cat.jpg" id="cat" onclick="incrementarLikeTutankamon()"></td> -->
 				<!-- <td><img src="img/cat2.jpg" id="cat2" onclick="incrementarLikeAnubis()"></td> -->
@@ -33,118 +33,39 @@
 		</table>
 
 	<script>
+	
+		var cat = [0,10,20,30,40];
 
-		var i = 0, j = 0, k = 0, l = 0, m = 0;
-		// var gatos = [1, 2, 3, 4, 5];
-
-		// function incrementarLikeTutankamon(){
-		// 	document.getElementById("like").setAttribute("class", "animated flipInX");
-		// 	window.setTimeout( function(){ document.getElementById("like").setAttribute("class", ""); }  ,  250 );
-		// 	document.getElementById("like").innerHTML = ++i;
-		// }
-
-		// function incrementarLikeAnubis(){
-		// 	document.getElementById("like2").setAttribute("class", "animated flipInX");
-		// 	window.setTimeout( function(){ document.getElementById("like2").setAttribute("class", ""); }  ,  250 );
-		// 	document.getElementById("like2").innerHTML = ++j;
-		// }
-
-		// function incrementarLikeAnubis(){
-		// 	document.getElementById("like2").setAttribute("class", "animated flipInX");
-		// 	window.setTimeout( function(){ document.getElementById("like2").setAttribute("class", ""); }  ,  250 );
-		// 	document.getElementById("like2").innerHTML = ++j;
-		// }
-
-		// function incrementarLikeAnubis(){
-		// 	document.getElementById("like2").setAttribute("class", "animated flipInX");
-		// 	window.setTimeout( function(){ document.getElementById("like2").setAttribute("class", ""); }  ,  250 );
-		// 	document.getElementById("like2").innerHTML = ++j;
-		// }
-
-		// function incrementarLikeAnubis(){
-		// 	document.getElementById("like2").setAttribute("class", "animated flipInX");
-		// 	window.setTimeout( function(){ document.getElementById("like2").setAttribute("class", ""); }  ,  250 );
-		// 	document.getElementById("like2").innerHTML = ++j;
-		// }
-
-
-		function incrementarLike(un_like, num){
+		function incrementarLike(un_like, catNum){
+			cat[catNum]++;
 			document.getElementById(un_like).setAttribute("class", "animated flipInX");
 			window.setTimeout( function(){ document.getElementById(un_like).setAttribute("class", ""); }  ,  250 );
-			document.getElementById(un_like).innerHTML = num;
+			document.getElementById(un_like).innerHTML = cat[catNum];
+			console.log(cat[catNum]);
 		}
 
+		function showCat(nom, catNum){
 
-		function showTutankamon(){
+			// debugger;
+
 			document.getElementById("nombreGato").innerHTML = "";
-
 			var para = document.createElement("P");
-		    var t = document.createTextNode("Tutankamon");
+		    var t = document.createTextNode(nom);
 		    para.appendChild(t);
 		    document.getElementById("nombreGato").appendChild(para);
 
-		    document.getElementById("imgGato").innerHTML = "<img src='img/cat.jpg' id='cat' onclick='incrementarLike(\"like\", ++i)'>";
+		    document.getElementById("imgGato").innerHTML = "<img src='img/cat" + catNum + ".jpg' id='cat' onclick='incrementarLike(\"like\"," + catNum + ")'>";
 
-		    document.getElementById("numLikes").innerHTML = "<h2 id='like'>" + i + "</h2>";
-		}
-
-		function showAnubis(){
-			document.getElementById("nombreGato").innerHTML = ""; 
-
-			var para = document.createElement("P");
-		    var t = document.createTextNode("Anubis");
-		    para.appendChild(t);
-		    document.getElementById("nombreGato").appendChild(para);
-
-		    document.getElementById("imgGato").innerHTML = "<img src='img/cat2.jpg' id='cat' onclick='incrementarLike(\"like2\", ++j)' >";
-
-		    document.getElementById("numLikes").innerHTML = "<h2 id='like2'>" + j + "</h2>";
-		}
-
-		function showJahi(){
-			document.getElementById("nombreGato").innerHTML = ""; 
-
-			var para = document.createElement("P");
-		    var t = document.createTextNode("Jahi");
-		    para.appendChild(t);
-		    document.getElementById("nombreGato").appendChild(para);
-
-		    document.getElementById("imgGato").innerHTML = "<img src='img/cat3.jpg' id='cat' onclick='incrementarLike(\"like3\", ++k)'>";
-
-		    document.getElementById("numLikes").innerHTML = "<h2 id='like3'>" + k + "</h2>";
-		}
-
-		function showKhalid(){
-			document.getElementById("nombreGato").innerHTML = ""; 
-
-			var para = document.createElement("P");
-		    var t = document.createTextNode("Khalid");
-		    para.appendChild(t);
-		    document.getElementById("nombreGato").appendChild(para);
-
-		    document.getElementById("imgGato").innerHTML = "<img src='img/cat4.jpg' id='cat' onclick='incrementarLike(\"like4\", ++l)'>";
-
-		    document.getElementById("numLikes").innerHTML = "<h2 id='like4'>" + l + "</h2>";
-		}
-
-		function showSadiki(){
-			document.getElementById("nombreGato").innerHTML = ""; 
-
-			var para = document.createElement("P");
-		    var t = document.createTextNode("Sadiki");
-		    para.appendChild(t);
-		    document.getElementById("nombreGato").appendChild(para);
-
-		    document.getElementById("imgGato").innerHTML = "<img src='img/cat5.jpg' id='cat' onclick='incrementarLike(\"like5\", ++m)'>";
-
-		    document.getElementById("numLikes").innerHTML = "<h2 id='like5'>" + m + "</h2>";
+		    document.getElementById("numLikes").innerHTML = "<h2 id='like'>" + cat[catNum] + "</h2>";
 		}
 
 		var aparecer = true; //Al principio true para que aparezca el submenu
 
 		function menu(){
 			if(aparecer == true){
-				document.getElementById("listaGatos").innerHTML = '<h3>Gatos</h3><ul><li><a onclick="showTutankamon()" id="bas">Tutankamon</a></li><li><a onclick="showAnubis()" id="anu">Anubis</a></li><li><a onclick="showJahi()" id="jah">Jahi</a></li><li><a onclick="showKhalid()" id="kha">Khalid</a></li><li><a onclick="showSadiki()" id="sad">Sadiki</a></li></ul>';
+				document.getElementById("listaGatos").innerHTML = '<h3>Gatos</h3><ul><li><a onclick="showCat(\'Tutankamon\', 0)" id="bas">Tutankamon</a></li><li><a onclick="showCat(\'Anubis\', 1)" id="anu">Anubis</a></li><li><a onclick="showCat(\'Jahi\', 2)" id="jah">Jahi</a></li><li><a onclick="showCat(\'Khalid\', 3)" id="kha">Khalid</a></li><li><a onclick="showCat(\'Sadiki\', 4)" id="sad">Sadiki</a></li></ul>';
+
+				// '<h3>Gatos</h3><ul><li><a onclick="showTutankamon()" id="bas">Tutankamon</a></li><li><a onclick="showAnubis()" id="anu">Anubis</a></li><li><a onclick="showJahi()" id="jah">Jahi</a></li><li><a onclick="showKhalid()" id="kha">Khalid</a></li><li><a onclick="showSadiki()" id="sad">Sadiki</a></li></ul>';
 				// document.getElementById("subMenu").style.visibility = "visible";
 				document.getElementById("listaGatos").style.position = "fixed";
 				// document.getElementById("menu-lineas").src = "img/boton_icono2.png";
