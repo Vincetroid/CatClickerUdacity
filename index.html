@@ -16,31 +16,26 @@
 		<table>
 			<tr>
 				<td id="nombreGato"><p>Tutankamon</p></td>
-				<!-- <td><p>Tutankamon</p></td> -->
-				<!-- <td><p>Anubis</p></td> -->
 			</tr>
 			<tr>
 				<td id="imgGato">
-					<img src="img/cat0.jpg" id="cat" onclick="incrementarLike('like', 0)">
+					<img src="img/cat0.jpg" id="cat" onclick="incrementarLike(0)">
 				</td>
-				<!-- <td id="imgGato"><img src="img/cat.jpg" id="cat" onclick="incrementarLikeTutankamon()"></td> -->
-				<!-- <td><img src="img/cat2.jpg" id="cat2" onclick="incrementarLikeAnubis()"></td> -->
 			</tr>	
 			<tr>
 				<td id="numLikes"><h2 id="like">0</h2></td>
-				<!-- <td><h2 id="like2">0</h2></td> -->
 			</tr>		
 		</table>
 
 	<script>
-	
-		var cat = [0,10,20,30,40];
 
-		function incrementarLike(un_like, catNum){
+		var cat = [0,0,0,0,0];
+
+		function incrementarLike(catNum){
 			cat[catNum]++;
-			document.getElementById(un_like).setAttribute("class", "animated flipInX");
-			window.setTimeout( function(){ document.getElementById(un_like).setAttribute("class", ""); }  ,  250 );
-			document.getElementById(un_like).innerHTML = cat[catNum];
+			document.getElementById("like").setAttribute("class", "animated flipInX");
+			window.setTimeout( function(){ document.getElementById("like").setAttribute("class", ""); }  ,  250 );
+			document.getElementById("like").innerHTML = cat[catNum];
 			console.log(cat[catNum]);
 		}
 
@@ -54,7 +49,7 @@
 		    para.appendChild(t);
 		    document.getElementById("nombreGato").appendChild(para);
 
-		    document.getElementById("imgGato").innerHTML = "<img src='img/cat" + catNum + ".jpg' id='cat' onclick='incrementarLike(\"like\"," + catNum + ")'>";
+		    document.getElementById("imgGato").innerHTML = "<img src='img/cat" + catNum + ".jpg' id='cat' onclick='incrementarLike(" + catNum + ")'>";
 
 		    document.getElementById("numLikes").innerHTML = "<h2 id='like'>" + cat[catNum] + "</h2>";
 		}
