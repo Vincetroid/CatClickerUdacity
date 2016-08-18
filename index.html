@@ -6,92 +6,26 @@
 		<link rel="stylesheet" href="css/main.css" />
 		<link rel="stylesheet" href="css/animate.css"/>
 	</head>
-	<body onload="menu()">
+	<body>
 		<div id="listaGatos">	
 		</div>
 		<header>
 			<h1>Cat Clicker</h1>
 		</header>
-		<img id="menu-lineas" src="img/boton_icono.png" width="32px" height="32px" onclick="menu()">
+		<img id="menu-lineas" src="img/boton_icono.png" width="32px" height="32px" onclick="view.renderMenu()">
 		<table>
 			<tr>
 				<td id="nombreGato"><p>Tutankamon</p></td>
 			</tr>
 			<tr>
 				<td id="imgGato">
-					<img src="img/cat0.jpg" id="cat" onclick="incrementarLike(0)">
+					<img src="img/cat0.jpg" id="cat" onclick="view.addingLike(0)">
 				</td>
 			</tr>	
 			<tr>
 				<td id="numLikes"><h2 id="like">0</h2></td>
 			</tr>		
 		</table>
-
-	<script>
-
-		var cat = [0,0,0,0,0];
-
-		function incrementarLike(catNum){
-			cat[catNum]++;
-			document.getElementById("like").setAttribute("class", "animated flipInX");
-			window.setTimeout( function(){ document.getElementById("like").setAttribute("class", ""); }  ,  250 );
-			document.getElementById("like").innerHTML = cat[catNum];
-			console.log(cat[catNum]);
-		}
-
-		function showCat(nom, catNum){
-
-			// debugger;
-
-			document.getElementById("nombreGato").innerHTML = "";
-			var para = document.createElement("P");
-		    var t = document.createTextNode(nom);
-		    para.appendChild(t);
-		    document.getElementById("nombreGato").appendChild(para);
-
-		    document.getElementById("imgGato").innerHTML = "<img src='img/cat" + catNum + ".jpg' id='cat' onclick='incrementarLike(" + catNum + ")'>";
-
-		    document.getElementById("numLikes").innerHTML = "<h2 id='like'>" + cat[catNum] + "</h2>";
-		}
-
-		var aparecer = true; //Al principio true para que aparezca el submenu
-
-		function menu(){
-			if(aparecer == true){
-				document.getElementById("listaGatos").innerHTML = '<h3>Gatos</h3><ul><li><a onclick="showCat(\'Tutankamon\', 0)" id="bas">Tutankamon</a></li><li><a onclick="showCat(\'Anubis\', 1)" id="anu">Anubis</a></li><li><a onclick="showCat(\'Jahi\', 2)" id="jah">Jahi</a></li><li><a onclick="showCat(\'Khalid\', 3)" id="kha">Khalid</a></li><li><a onclick="showCat(\'Sadiki\', 4)" id="sad">Sadiki</a></li></ul>';
-
-				// '<h3>Gatos</h3><ul><li><a onclick="showTutankamon()" id="bas">Tutankamon</a></li><li><a onclick="showAnubis()" id="anu">Anubis</a></li><li><a onclick="showJahi()" id="jah">Jahi</a></li><li><a onclick="showKhalid()" id="kha">Khalid</a></li><li><a onclick="showSadiki()" id="sad">Sadiki</a></li></ul>';
-				// document.getElementById("subMenu").style.visibility = "visible";
-				document.getElementById("listaGatos").style.position = "fixed";
-				// document.getElementById("menu-lineas").src = "img/boton_icono2.png";
-				// <img src="" width="32px" height="32px" style="position:absolute; margin-top:-18px;" id="boton_icono" onclick="submenu()">
-				document.getElementById("listaGatos").style.fontFamily = "Roboto Slab";
-				document.getElementById("listaGatos").style.color = "white";
-				document.getElementById("listaGatos").style.width = "150px";
-				document.getElementById("listaGatos").style.height = "100%";
-				document.getElementById("listaGatos").style.right = "0%";
-				document.getElementById("listaGatos").style.border = "1px solid #7d7d7d";
-				document.getElementById("listaGatos").style.background = "#DBDBDB";
-				document.getElementById("bas").style.color = "yellow";
-				document.getElementById("anu").style.color = "yellow";
-				document.getElementById("jah").style.color = "yellow";
-				document.getElementById("kha").style.color = "yellow";
-				document.getElementById("sad").style.color = "yellow";
-				document.getElementById("listaGatos").style.padding = "15px";
-				document.getElementById("listaGatos").style.display = "block";
-				document.getElementById("listaGatos").style.boxShadow = "0px 0px 4px black";
-				// document.getElementById("listaGatos").style.textDecoration = "none";
-				// document.getElementById("listaGatos").style.listStyleImage = "url('../V4/img/vineta2.png')";
-				document.getElementById("listaGatos").setAttribute("class", "animated fadeInRight");
-
-				aparecer = false; //Una vez mostrado se cambia a false para que al darle click se oculte
-			} else {
-				document.getElementById("listaGatos").setAttribute("class", "animated fadeOutRight");
-
-				aparecer = true; //Una vez ocultado se cambia a true para que al dar click aparezca de nuevo
-			}
-		}
-	
-	</script>
+		<script src="js/catclicker.js"></script>
 	</body>
-</html> 
+</html>
