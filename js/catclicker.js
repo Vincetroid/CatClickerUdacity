@@ -1,7 +1,12 @@
 var aparecer = true; //Al principio true para que aparezca el submenu
+var aparecerAdmin = true;
 
 var model = {
 	cat: [0,0,0,0,0]
+	// currentCat: null,
+	// cats: [
+	// 	{}
+	// ]
 };
 
 var octopus = {
@@ -61,6 +66,7 @@ var view = {
 	renderMenu: function() {
 
 		if(aparecer == true){
+			// Tiene sentido que tal vez tenga que pasar los nombres y las imagenes a Model
 			document.getElementById("listaGatos").innerHTML = '<h3>Gatos</h3><ul><li><a onclick="view.changeCat(\'Tutankamon\', 0)" id="bas">Tutankamon</a></li><li><a onclick="view.changeCat(\'Anubis\', 1)" id="anu">Anubis</a></li><li><a onclick="view.changeCat(\'Jahi\', 2)" id="jah">Jahi</a></li><li><a onclick="view.changeCat(\'Khalid\', 3)" id="kha">Khalid</a></li><li><a onclick="view.changeCat(\'Sadiki\', 4)" id="sad">Sadiki</a></li></ul>';
 			document.getElementById("listaGatos").style.position = "fixed";
 			document.getElementById("listaGatos").style.fontFamily = "Roboto Slab";
@@ -83,6 +89,17 @@ var view = {
 		} else {
 			document.getElementById("listaGatos").setAttribute("class", "animated fadeOutRight");
 			aparecer = true; //Una vez ocultado se cambia a true para que al dar click aparezca de nuevo
+		}
+	},
+
+	renderAdmin: function(){
+		if(aparecerAdmin == true) {
+			document.getElementById("box-admin").innerHTML = '<table><tr class="letter-admin"><td><p>Name</p></td><td><input type="text" name=""></td></tr><tr class="letter-admin"><td><p>Img URL</p></td><td><input type="text" name=""></td></tr><tr class="letter-admin"><td><p># Clicks</p></td><td><input type="text" name=""></td></tr><tr><td colspan="2"><center><input type="button" value="Save"><!--<input type="button" value="Cancel" style="margin-left: 10px;">--></center></td></tr></table>';
+			document.getElementById("box-admin").setAttribute("class", "animated fadeInLeft");
+			aparecerAdmin = false;
+		} else {
+			document.getElementById("box-admin").setAttribute("class", "animated fadeOutLeft");
+			aparecerAdmin = true;
 		}
 	},
 
